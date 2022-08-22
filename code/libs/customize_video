@@ -1,0 +1,1 @@
+vidoo.setVideoPath((activity.getLuaDir().."路径"))vidoo.setOnPreparedListener(MediaPlayer.OnPreparedListener{  onPrepared=function(mediaPlayer)    vidoo.start()    mediaPlayer.setLooping(true)    vidoo.setBackgroundColor(0x00000000)  end});
