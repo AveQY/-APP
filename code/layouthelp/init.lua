@@ -1,0 +1,10 @@
+appname="布局"
+appver="1.1"
+packagename="com.androlua.layouthelper"
+theme="Theme_Holo"
+description="布局"
+debugmode=false
+user_permission={
+  "INTERNET",
+  "WRITE_EXTERNAL_STORAGE"
+}
