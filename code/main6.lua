@@ -1,0 +1,653 @@
+require "import"
+import "android.app.*"
+import "android.os.*"
+import "android.widget.*"
+import "android.view.*"
+import 'function'
+
+activity.setTheme(R.Theme_Black)
+activity.setTitle("一键生成APP")
+--隐藏标题栏
+activity.ActionBar.hide()
+主路径="/sdcard/訫"
+
+layout={
+  LinearLayout;
+  layout_height="match_parent";
+  layout_width="match_parent";
+  orientation="vertical";
+  {
+    CardView;
+    CardElevation="0dp";
+    layout_height="wrap_content";
+    radius="0dp";
+    layout_width="match_parent";
+    backgroundColor="#ffffff";
+    {
+      LinearLayout;
+      layout_width="match_parent";
+      layout_marginTop=result;
+      {
+        LinearLayout;
+        orientation="horizontal";
+        layout_height="56dp";
+        layout_width="match_parent";
+        gravity="center";
+        {
+          TextView;
+          ellipsize="end";
+          layout_width="match_parent";
+          id="title";
+          textSize="22dp";
+          textColor="#000000",
+          layout_marginLeft="15dp";
+          singleLine=true;
+          gravity="center|left";
+          layout_height="match_parent";
+          layout_weight="1";
+          text=...;
+        };
+
+        {
+          CardView;
+          layout_width="65dp";
+          radius="33dp";
+          CardElevation="0dp";
+          layout_marginRight="0dp";
+          layout_height="65dp";
+          UseCompatPadding=false;
+          PreventCornerOverlap=false;
+          background="#00000000";
+          {
+            ImageView;
+            padding="27dp";
+            layout_width="match_parent";
+            src="res/ic_arrow_forward_black_24dp.png";
+            layout_height="match_parent";
+            layout_margin="-10dp";
+            id="btn";
+            background="#00000000";
+            --ColorFilter=颜色4;
+          };
+        };
+      };
+    };
+  };
+  {
+    LinearLayout,--线性布局
+    orientation="vertical",--布局方向
+    layout_width="fill",--布局宽度
+    layout_height="fill",--布局高度
+
+    {
+      ScrollView,--纵向滑动控件
+      layout_width="fill",--布局宽度
+      layout_height="fill",--布局高度
+      overScrollMode=View.OVER_SCROLL_NEVER,--隐藏圆弧阴影
+      verticalScrollBarEnabled=false,--隐藏纵向滑条
+      {
+        LinearLayout;
+        layout_height="fill";
+        orientation="vertical";
+        layout_width="fill";
+        gravity="center|top";
+        backgroundColor='#ffffff';
+        {
+          TextView;
+          layout_width="match_parent";
+          layout_height="30dp";
+          text="软件名称：",
+          gravity="center|left";
+          layout_marginTop='20dp';--布局顶距
+          TextSize='9dp',
+          layout_marginLeft='15dp';--布局顶距
+        };
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="ed1";
+          {
+            EditText;--编辑框控件
+            layout_width='fill';--控件宽度
+            layout_height='fill';--控件高度
+            layout_margin='0dp';--控件外边距
+            id='edit1';--设置控件ID
+            layout_marginRight='5dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+            Hint=' 请输入软件名称';--编辑框内容为空时提示文字
+            textSize='16sp';--本文大小
+            textColor='#000000';--本文颜色
+            gravity='center|left';--重力
+            background='#00ffffff';--底条透明
+            singleLine=true;--设置单行输入
+            text="我的软件"
+          };
+        };
+
+        {
+          TextView;
+          layout_width="match_parent";
+          layout_height="30dp";
+          text="版本：",
+          gravity="center|left";
+          TextSize='9dp',
+          layout_marginTop='10dp';--布局顶距
+          layout_marginLeft='15dp';--布局顶距
+        };
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="ed2";
+          {
+            EditText;--编辑框控件
+            layout_width='fill';--控件宽度
+            layout_height='fill';--控件高度
+            layout_margin='0dp';--控件外边距
+            id='edit2';--设置控件ID
+            layout_marginRight='5dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+            Hint=' 请输入软件版本';--编辑框内容为空时提示文字
+            textSize='16sp';--本文大小
+            textColor='#000000';--本文颜色
+            gravity='center|left';--重力
+            background='#00ffffff';--底条透明
+            singleLine=true;--设置单行输入
+            text="1.0"
+          };
+        };
+
+        {
+          TextView;
+          layout_width="match_parent";
+          layout_height="30dp";
+          text="包名：",
+          gravity="center|left";
+          TextSize='9dp',
+          layout_marginTop='10dp';--布局顶距
+          layout_marginLeft='15dp';--布局顶距
+        };
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="ed3";
+          {
+            EditText;--编辑框控件
+            layout_width='fill';--控件宽度
+            layout_height='fill';--控件高度
+            layout_margin='0dp';--控件外边距
+            id='edit3';--设置控件ID
+            layout_marginRight='5dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+            Hint=' 请输入软件包名';--编辑框内容为空时提示文字
+            textSize='16sp';--本文大小
+            textColor='#000000';--本文颜色
+            gravity='center|left';--重力
+            background='#00ffffff';--底条透明
+            singleLine=true;--设置单行输入
+            text="com.myapp"
+          };
+        };
+
+
+        {
+          TextView;
+          layout_width="match_parent";
+          layout_height="30dp";
+          text="进入软件的密码：(选填,不填密码无解)",
+          gravity="center|left";
+          TextSize='6dp',
+          layout_marginTop='10dp';--布局顶距
+          layout_marginLeft='15dp';--布局顶距
+        };
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="password_card";
+          {
+            EditText;--编辑框控件
+            layout_width='fill';--控件宽度
+            layout_height='fill';--控件高度
+            layout_margin='0dp';--控件外边距
+            id='password_edit';--设置控件ID
+            layout_marginRight='5dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+            Hint=' 请输入密码';--编辑框内容为空时提示文字
+            textSize='16sp';--本文大小
+            textColor='#000000';--本文颜色
+            gravity='center|left';--重力
+            background='#00ffffff';--底条透明
+            singleLine=true;--设置单行输入
+            text=""
+          };
+        };
+
+        {
+          TextView;
+          layout_width="match_parent";
+          layout_height="30dp";
+          text="你想说的话：(选填,将放在软件主页)",
+          gravity="center|left";
+          TextSize='6dp',
+          layout_marginTop='10dp';--布局顶距
+          layout_marginLeft='15dp';--布局顶距
+        };
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="want_card";
+          {
+            EditText;--编辑框控件
+            layout_width='fill';--控件宽度
+            layout_height='fill';--控件高度
+            layout_margin='0dp';--控件外边距
+            id='want_edit';--设置控件ID
+            layout_marginRight='5dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+            Hint=' 例如：这是老子的软件哦！';--编辑框内容为空时提示文字
+            textSize='16sp';--本文大小
+            textColor='#000000';--本文颜色
+            gravity='center|left';--重力
+            background='#00ffffff';--底条透明
+            singleLine=true;--设置单行输入
+            text=""
+          };
+        };
+
+        {
+          LinearLayout;
+          gravity="center";
+          layout_width="fill";
+          layout_height="70%w";
+          orientation="vertical";
+          id='set1',
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="30dp";
+            text="软件背景：",
+            gravity="center|left";
+            TextSize='6dp',
+            layout_marginTop='10dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+          };
+          {
+            LinearLayout;
+            gravity="center";
+            layout_width="fill";
+            layout_height="50%w";
+            onClick=function()
+              Toast.makeText(activity,"请选择图片", Toast.LENGTH_LONG).show()
+              调用系统选择文件(function (a)
+                LuaUtil.copyDir(a,主路径.."/MyApp/bg.png")
+                img.setImageBitmap(loadbitmap(a))
+                Toast.makeText(activity,"设置完成", Toast.LENGTH_LONG).show()
+              end)
+            end,
+            {
+              ImageView;
+              src=主路径.."/MyApp/bg.png";
+              layout_width="match_parent";
+              layout_height="fill";
+              id='img'
+            };
+          };
+        },
+        {
+          LinearLayout;
+          gravity="center";
+          layout_width="fill";
+          layout_height="70%w";
+          orientation="vertical";
+          id='set2',
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="30dp";
+            text="软件内播放视频：",
+            gravity="center|left";
+            TextSize='6dp',
+            layout_marginTop='10dp';
+            layout_marginLeft='15dp';
+          };
+
+          {
+            LinearLayout;
+            gravity="center";
+            layout_width="fill";
+            layout_height="35%w";
+            id="set_vi",
+            layout_margin='15dp';--布局顶距
+            {
+              ScrollView,
+              layout_width="fill";
+              layout_height="fill";
+              {
+                TextView;
+                layout_width="fill";
+                layout_height="fill";
+                id='vi',
+              };
+            };
+          };
+
+          {
+            CardView;--卡片控件
+            layout_width='80%w';--卡片宽度
+            layout_height='8%h';--卡片高度
+            cardBackgroundColor='#ffffff';--卡片颜色
+            layout_marginTop='5dp';--布局顶距
+            layout_margin='1dp';--卡片边距
+            cardElevation='0dp';--卡片阴影
+            layout_gravity='center';--在父控件中的对齐方式
+            radius='8dp';--卡片圆角
+            id="choose_video";
+            layout_marginBottom='10dp';--布局顶距
+            {
+              TextView;
+              layout_width="match_parent";
+              layout_height="fill";
+              text="选择视频",
+              gravity="center";
+              TextSize='6dp',
+            };
+          },
+        },
+
+        {
+          LinearLayout;
+          gravity="center";
+          layout_width="fill";
+          layout_height="70%w";
+          orientation="vertical";
+          id='set4',
+          visibility=8;
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="30dp";
+            text="软件内播放音乐：",
+            gravity="center|left";
+            TextSize='6dp',
+            layout_marginTop='10dp';
+            layout_marginLeft='15dp';
+          };
+
+          {
+            LinearLayout;
+            gravity="center";
+            layout_width="fill";
+            layout_height="35%w";
+            id="set_music",
+            layout_margin='15dp';--布局顶距
+            {
+              ScrollView,
+              layout_width="fill";
+              layout_height="fill";
+              {
+                TextView;
+                layout_width="fill";
+                layout_height="fill";
+                id='mu',
+              };
+            };
+          };
+          {
+            CardView;--卡片控件
+            layout_width='80%w';--卡片宽度
+            layout_height='8%h';--卡片高度
+            cardBackgroundColor='#ffffff';--卡片颜色
+            layout_marginTop='5dp';--布局顶距
+            layout_margin='1dp';--卡片边距
+            cardElevation='0dp';--卡片阴影
+            layout_gravity='center';--在父控件中的对齐方式
+            radius='8dp';--卡片圆角
+            id="choose_music";
+            layout_marginBottom='10dp';--布局顶距
+            {
+              TextView;
+              layout_width="match_parent";
+              layout_height="fill";
+              text="选择歌曲",
+              gravity="center";
+              TextSize='6dp',
+            };
+          },
+        },
+
+
+        {
+          LinearLayout;
+          gravity="center";
+          layout_width="fill";
+          layout_height="40%w";
+          orientation="vertical";
+          id='set3',
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="30dp";
+            text="软件加载的网址：",
+            gravity="center|left";
+            TextSize='6dp',
+            layout_marginTop='10dp';--布局顶距
+            layout_marginLeft='15dp';--布局顶距
+          };
+          {
+            CardView;--卡片控件
+            layout_width='80%w';--卡片宽度
+            layout_height='8%h';--卡片高度
+            cardBackgroundColor='#ffffff';--卡片颜色
+            layout_marginTop='10dp';--布局顶距
+            layout_margin='1dp';--卡片边距
+            cardElevation='0dp';--卡片阴影
+            layout_gravity='center';--在父控件中的对齐方式
+            radius='8dp';--卡片圆角
+            id="webu";
+            {
+              EditText;--编辑框控件
+              layout_width='fill';--控件宽度
+              layout_height='fill';--控件高度
+              layout_margin='0dp';--控件外边距
+              id='webu_edit';--设置控件ID
+              layout_marginRight='5dp';--布局顶距
+              layout_marginLeft='15dp';--布局顶距
+              Hint=' 例如：http://www.baidu.com';--编辑框内容为空时提示文字
+              textSize='16sp';--本文大小
+              textColor='#000000';--本文颜色
+              gravity='center|left';--重力
+              background='#00ffffff';--底条透明
+              singleLine=true;--设置单行输入
+              text=""
+            };
+          };
+        },
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="ed4";
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="fill";
+            text="恢复默认",
+            gravity="center";
+            TextSize='6dp',
+          };
+        },
+        {
+          CardView;--卡片控件
+          layout_width='80%w';--卡片宽度
+          layout_height='8%h';--卡片高度
+          cardBackgroundColor='#ffffff';--卡片颜色
+          layout_marginTop='10dp';--布局顶距
+          layout_margin='1dp';--卡片边距
+          cardElevation='0dp';--卡片阴影
+          layout_gravity='center';--在父控件中的对齐方式
+          radius='8dp';--卡片圆角
+          id="ed5";
+          layout_marginBottom='30dp';--布局顶距
+          {
+            TextView;
+            layout_width="match_parent";
+            layout_height="fill";
+            text="高级设置",
+            gravity="center";
+            TextSize='6dp',
+            id="高级设置",
+          };
+        },
+        {
+          LinearLayout;
+          orientation="horizontal";
+          layout_width="fill";
+          layout_height='5%h';
+          layout_marginLeft='20dp';
+          layout_marginBottom='30dp';--布局顶距
+          id="ed6";
+          {
+            TextView;
+            layout_width="65%w";
+            layout_height="fill";
+            text="是否展示浏览器底栏",
+            gravity="center|left";
+            TextSize='8dp',
+          };
+          {
+            Switch;
+            id="浏览器低栏",
+            layout_gravity="center";
+            layout_height="fill";
+          };
+        },
+      };
+    };
+
+  },
+}
+activity.setContentView(loadlayout(layout))
+
+parameter=...
+if parameter:match('+(.+)')=="视频" then
+  set1.setVisibility(View.GONE)
+  set3.setVisibility(View.GONE)
+  ed4.setVisibility(View.GONE)
+  ed6.setVisibility(View.GONE)
+ elseif parameter:match('+(.+)')=="网页" then
+  LuaUtil.copyDir(activity.getLuaDir().."/libs/web_main",主路径.."/MyApp/main2.lua")
+  set1.setVisibility(View.GONE)
+  set2.setVisibility(View.GONE)
+  ed4.setVisibility(View.GONE)
+ elseif parameter:match('+(.+)')=="音乐" then
+  set4.setVisibility(View.VISIBLE)
+  set1.setVisibility(View.GONE)
+  set2.setVisibility(View.GONE)
+  ed4.setVisibility(View.GONE)
+  set3.setVisibility(View.GONE)
+  ed6.setVisibility(View.GONE)
+  高级设置.setText("高级设置(只对自动执行事件有效)")
+ else
+  LuaUtil.copyDir(activity.getLuaDir().."/res/bg.png",主路径.."/MyApp/bg.png")
+  img.setImageBitmap(loadbitmap(主路径.."/MyApp/bg.png"))
+  set2.setVisibility(View.GONE)
+  set3.setVisibility(View.GONE)
+  ed6.setVisibility(View.GONE)
+end
+
+卡片边框(ed1,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(ed2,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(ed3,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(ed4,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(ed5,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(webu,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(password_card,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(want_card,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(choose_video,3,0x40000000,0xFFFFFFFF,360);
+卡片边框(choose_music,3,0x40000000,0xFFFFFFFF,360);
+
+init=io.open(主路径.."/MyApp/init.lua"):read("*a")
+edit1.setText(init:match('appname="(.-)"'))
+edit2.setText(init:match('appver="(.-)"'))
+edit3.setText(init:match('packagename="(.-)"'))
+
+
+btn.onClick=function()
+  init=io.open(主路径.."/MyApp/init.lua"):read("*a")
+  main=io.open(主路径.."/MyApp/main.lua"):read("*a")
+  init2=init:gsub('appname="(.-)"','appname="'..edit1.Text..'"')
+  io.open(主路径.."/MyApp/init","w"):write(edit1.Text):close()
+  init3=init2:gsub('appver="(.-)"','appver="'..edit2.Text..'"')
+  init4=init3:gsub('packagename="(.-)"','packagename="'..edit3.Text..'"')
+  io.open(主路径.."/MyApp/init.lua","w"):write(init4):close()
+  if parameter:match('+(.+)')=="网页" then
+    io.open(主路径.."/MyApp/a","w"):write(webu_edit.Text):close()
+    if 浏览器低栏.Checked==true
+      io.open("/sdcard/訫/MyApp/b")
+     else
+      os.execute("rm -r ".."/sdcard/訫/MyApp/b")
+    end
+  end
+  activity.newActivity('main7',{"N【"..edit1.Text.."】\nV【"..edit2.Text.."】\nB【"..edit3.Text.."】\npassword【"..password_edit.Text.."】\nsay【"..want_edit.Text.."】"})
+end
+
+ed4.onClick=function()
+  LuaUtil.copyDir(activity.getLuaDir().."/res/bg.png",主路径.."/MyApp/bg.png")
+  img.setImageBitmap(loadbitmap(主路径.."/MyApp/bg.png"))
+  Toast.makeText(activity,"已恢复", Toast.LENGTH_LONG).show()
+end
+
+ed5.onClick=function()
+  activity.newActivity('main4',{主路径})
+end
+
+
+i=0
+choose_video.onClick=function()
+  Toast.makeText(activity,"请选择视频文件", Toast.LENGTH_LONG).show()
+  调用系统选择文件(function (a)
+    LuaUtil.copyDir(a,主路径.."/MyApp/"..tonumber(i+1)..".mp4")
+    i=i+1
+    vi.setText(vi.Text.."/"..i..".mp4\n")
+  end)
+end
