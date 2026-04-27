@@ -3,6 +3,7 @@
 一个基于 Lua / AndroLua 的 Android 模板化 APP 生成工具，应用名称为 **一键生成APP**。通过预置模板、解压资源、修改配置和页面跳转的方式，帮助用户不用写任何代码就能实现一键快速生成不同类型的 Android 应用。
 
 **视频介绍：** [纯纯的小白也会制作软件APP了！](https://www.bilibili.com/video/BV17U4y1v7Fz/?share_source=copy_web&vd_source=0f5f22cb3bf4455cc820a63ea7bc2732)
+
 **说明：** 本项目已不在维护，如果你有想法欢迎二创修改！
 
 “模板工程生成器”：
